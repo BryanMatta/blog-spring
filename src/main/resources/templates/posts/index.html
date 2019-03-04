@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments/header :: header('Showing all posts')"></head>
+	<body>
+		<div th:replace="fragments/navbar :: navbar"></div>
+		<h1>Here are all the posts</h1>
+		<div class="card-group">
+			<div th:each="post : ${posts}">
+				<div class="card">
+					<div class="card-header">
+						<h3 th:text="${post.title}"/>
+					</div>
+					<div class="card-body">
+						<p th:text="${post.body}"/>
+					</div>
+					<div class="card-footer">
+						<a class="btn btn-outline-secondary" th:href="@{/posts/{id}(id=${post.id})}">View post</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div th:replace="fragments/footer :: footer"></div>
+	</body>
+</html>

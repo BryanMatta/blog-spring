@@ -7,8 +7,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class homeController {
     @GetMapping("/")
-    @ResponseBody
     public String Landing(){
-        return "This is the landing page!";
+        return "home";
     }
 }

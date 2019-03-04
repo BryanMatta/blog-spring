@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments/header :: header('Showing post')"></head>
+	<body>
+		<div th:replace="fragments/navbar :: navbar"></div>
+		<div class="card">
+			<div class="card-header">
+				<h1 th:text="${post.title}"/>
+			</div>
+			<div class="card-body">
+				<p th:text="${post.body}"/>
+			</div>
+			<div class="card-footer">
+				<a class="btn btn-outline-secondary" th:href="@{/posts/{id}/edit(id=${post.id})}">Edit post</a>
+				
+				<form class="d-inline" th:action="@{/posts/delete}" th:method="POST">
+					<button  class="btn btn-outline-danger" th:value="${post.id}" th:name="id">Delete this post</button>
+				</form>
+			</div>
+		</div>
+		<div>
+			<a class="btn btn-outline-secondary" th:href="@{/posts}">Back to all posts</a>
+		</div>
+		<div th:replace="fragments/footer :: footer"></div>
+	</body>
+</html>

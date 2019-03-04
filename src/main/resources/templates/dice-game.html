@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments/header :: header('Rolled the dice')">
+	</head>
+	<body>
+		<div th:replace="fragments/navbar :: navbar"></div>
+		<h1>Here are the rolls</h1>
+		<div>
+			<ul th:each="roll : ${rolls}">
+				<li><h3>Rolled: <span th:text="${roll.intValue()}"/></h3></li>
+			</ul>
+			<h3>You guessed <span th:text="${guesses}" /> rolls correctly</h3>
+		</div>
+		<div th:replace="fragments/footer :: footer"></div>
+	</body>
+</html>
