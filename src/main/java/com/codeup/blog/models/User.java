@@ -8,10 +8,10 @@ public class User {
     @Id @GeneratedValue
     private long id;
 
-    @Column(nullable = false, length = 128)
+    @Column (nullable = false, length = 128, unique = true)
     private String username;
 
-    @Column(nullable = false, length = 128)
+    @Column(nullable = false, length = 128, unique = true)
     private String email;
 
     @Column(nullable = false)
@@ -30,6 +30,13 @@ public class User {
         this.email = email;
         this.username = username;
         this.password = password;
+    }
+
+    public User(User copy) {
+        id = copy.id;
+        email = copy.email;
+        username = copy.username;
+        password = copy.password;
     }
 
     public void setId(long id) {
